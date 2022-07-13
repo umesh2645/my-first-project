@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    docker { image 'node:latest' }
-  }
+  agent { label 'windows' }
   stages {
     stage('Install') {
       steps { sh 'npm install' }
