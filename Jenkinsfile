@@ -1,6 +1,6 @@
 pipeline {
   agent { label 'master' }
-  stage('Checkout Code') {
+  stages('Checkout Code') {
       steps {
           checkout scm
       }
