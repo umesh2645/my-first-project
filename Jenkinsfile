@@ -1,11 +1,13 @@
 pipeline {
   agent { label 'master' }
-  stages('Checkout Code') {
+  
+  stages {
+    stage('Checkout Code') {
       steps {
           checkout scm
       }
    }
-  stages {
+
     stage('Install') {
       steps { sh 'npm install' }
     }
@@ -17,5 +19,6 @@ pipeline {
     stage('Run') {
       steps { sh 'ng serve' }
     }
+    
   }
 }
