@@ -4,11 +4,15 @@ pipeline {
   }
   stages {
     stage('Install') {
-      steps { 'npm install' }
+      steps { sh 'npm install' }
     }
-    
-    stage('run') {
-      steps { 'ng serve' }
+
+    stage('Build') {
+      steps { sh 'ng build' }
+    }
+
+    stage('Run') {
+      steps { sh 'ng serve' }
     }
   }
 }
