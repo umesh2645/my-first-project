@@ -1,5 +1,10 @@
 pipeline {
-  agent { label 'windows' }
+  agent { label 'master' }
+  stage('Checkout Code') {
+      steps {
+          checkout scm
+      }
+   }
   stages {
     stage('Install') {
       steps { sh 'npm install' }
