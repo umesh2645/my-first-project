@@ -1,24 +1,27 @@
 pipeline {
-  agent { label 'master' }
-  
-  stages {
-    stage('Checkout Code') {
-      steps {
-          checkout scm
-      }
-   }
+    agent any
 
-    stage('Install') {
-      steps { sh 'npm install' }
-    }
+    stages {
+        stage('Checkout Code') {
+            steps {
+                checkout scm
+            }
+        }
 
-    stage('Build') {
-      steps { sh 'ng build' }
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
     }
-
-    stage('Run') {
-      steps { sh 'ng serve' }
-    }
-    
-  }
 }
